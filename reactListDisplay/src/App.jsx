@@ -1,3 +1,4 @@
+import { ModalOne } from "./ModalOne";
 import { NumberedList } from "./NumberedList";
 import { LargePersonListItem } from "./people/largePersonListItem";
 import { SmallPersonListItem } from "./people/smallPersonListItem";
@@ -49,26 +50,9 @@ const products = [
 function App() {
   return (
     <>
-      <RegularList
-        items={people}
-        resourceName="person"
-        itemComponent={SmallPersonListItem}
-      />
-      <RegularList
-        items={people}
-        resourceName="person"
-        itemComponent={LargePersonListItem}
-      />
-      <NumberedList
-        items={products}
-        resourceName="product"
-        itemComponent={SmallProduct}
-      />
-      <NumberedList
-        items={products}
-        resourceName="product"
-        itemComponent={LargeProduct}
-      />
+      <ModalOne>
+        <LargeProduct product={products[0]} />
+      </ModalOne>
     </>
   );
 }
