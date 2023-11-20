@@ -3,11 +3,12 @@ import axios from "axios";
 
 export const UserLoader = ({ userId, children }) => {
   const [user, setUser] = useState(null);
-
+  console.log(userId);
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`http://localhost:8080//users/${userId}`);
+        const res = await axios.get(`http://localhost:8080/users/${userId}`);
+        console.log(res);
         setUser(res.data);
       } catch (error) {
         console.error("Error fetching current user:", error);
