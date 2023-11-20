@@ -1,7 +1,7 @@
 import express from "express";
 
 const app = express();
-
+export const addy = "http://localhost:8080/";
 app.use(express.json());
 
 let currentUser = {

@@ -7,9 +7,11 @@ export const CurrentUserLoader = ({ children }) => {
   useEffect(() => {
     async () => {
       const res = await axios.get("/current-user");
-      setUser(response.data);
+      console.log(res);
+      setUser(res.data);
     };
   }, []);
+  console.log(user);
   return (
     <>
       {React.Children.map(children, (child) => {
