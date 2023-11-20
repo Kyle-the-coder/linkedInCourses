@@ -1,13 +1,13 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
 
-export const CurrentUserLoader = ({ children }) => {
+export const UserLoader = ({ userId, children }) => {
   const [user, setUser] = useState(null);
 
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get("http://localhost:8080/current-user");
+        const res = await axios.get(`http://localhost:8080//users/${userId}`);
         setUser(res.data);
       } catch (error) {
         console.error("Error fetching current user:", error);
@@ -15,7 +15,7 @@ export const CurrentUserLoader = ({ children }) => {
     };
 
     fetchData();
-  }, []);
+  }, [userId]);
 
   return (
     <>
