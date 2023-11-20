@@ -8,7 +8,6 @@ export const UserLoader = ({ userId, children }) => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`http://localhost:8080/users/${userId}`);
-        console.log(res);
         setUser(res.data);
       } catch (error) {
         console.error("Error fetching current user:", error);

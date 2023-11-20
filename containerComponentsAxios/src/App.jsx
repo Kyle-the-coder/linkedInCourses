@@ -6,7 +6,13 @@ import { UserLoader } from "./UserLoader";
 function App() {
   return (
     <>
+      <UserLoader userId="1">
+        <UserInfo />
+      </UserLoader>
       <UserLoader userId="2">
+        <UserInfo />
+      </UserLoader>
+      <UserLoader userId="3">
         <UserInfo />
       </UserLoader>
     </>
