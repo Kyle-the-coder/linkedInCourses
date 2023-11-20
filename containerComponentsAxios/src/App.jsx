@@ -1,9 +1,5 @@
-import { CurrentUserLoader } from "./CurrentUserLoader";
-import { ResourceLoader } from "./ResourceLoader";
 import { UserInfo } from "./UserInfo";
 import { DataSource } from "./DataSource";
-import { ProductInfo } from "./ProductInfo";
-import { UserLoader } from "./UserLoader";
 import axios from "axios";
 export const addy = "http://localhost:8080";
 
