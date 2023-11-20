@@ -1,20 +1,19 @@
 import { CurrentUserLoader } from "./CurrentUserLoader";
-
+import { ResourceLoader } from "./ResourceLoader";
 import { UserInfo } from "./UserInfo";
+import { ProductInfo } from "./ProductInfo";
 import { UserLoader } from "./UserLoader";
+export const addy = "http://localhost:8080";
 
 function App() {
   return (
     <>
-      <UserLoader userId="1">
+      <ResourceLoader resourceUrl={`${addy}/users/2`} resourceName="user">
         <UserInfo />
-      </UserLoader>
-      <UserLoader userId="2">
-        <UserInfo />
-      </UserLoader>
-      <UserLoader userId="3">
-        <UserInfo />
-      </UserLoader>
+      </ResourceLoader>
+      <ResourceLoader resourceUrl={`${addy}/products/2`} resourceName="product">
+        <ProductInfo />
+      </ResourceLoader>
     </>
   );
 }
