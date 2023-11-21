@@ -1,9 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 export const ControlledForm = () => {
-  const [name, setName] = useState();
-  const [age, setAge] = useState();
-  const [hairColor, setHairColor] = useState();
+  const [nameError, setNameError] = useState("");
+  const [isNameErr, setIsNameErr] = useState(false);
+  const [name, setName] = useState("");
+  const [age, setAge] = useState("");
+  const [hairColor, setHairColor] = useState("");
+
+  useEffect(() => {
+    if (name.length < 2) {
+      setNameError("name must be at least 2 chars");
+      setIsNameErr(true);
+    } else if (name.length >= 2) {
+      setIsNameErr(false);
+      setNameError("");
+    }
+  }, [name, age, hairColor]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -19,6 +31,7 @@ export const ControlledForm = () => {
         placeholder="name"
         onChange={(e) => setName(e.target.value)}
       />
+      {isNameErr && <p>{nameError}</p>}
       <input
         name="age"
         type="text"
@@ -31,7 +44,7 @@ export const ControlledForm = () => {
         placeholder="hair color"
         onChange={(e) => setHairColor(e.target.value)}
       />
-      <input type="submit" value="Submit" />
+      <button>Submit</button>
     </form>
   );
 };
