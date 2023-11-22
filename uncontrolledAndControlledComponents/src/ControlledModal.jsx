@@ -19,7 +19,7 @@ const ModalBody = styled.div`
   width: 50%;
 `;
 
-export const ControlledModal = ({ children }) => {
+export const ControlledModal = ({ shouldShow, onRequestClose, children }) => {
   const [shouldShow, setShouldShow] = useState(false);
 
   return (
