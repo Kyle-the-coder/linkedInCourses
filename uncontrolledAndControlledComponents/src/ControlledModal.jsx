@@ -21,9 +21,9 @@ const ModalBody = styled.div`
 
 export const ControlledModal = ({ shouldShow, onRequestClose, children }) => {
   return shouldShow ? (
-    <ModalBackground onClick={() => onRequestClose}>
+    <ModalBackground onClick={() => onRequestClose()}>
       <ModalBody onClick={(e) => e.stopPropagation()}>
-        <button onClick={() => onRequestClose}>Hide Modal</button>
+        <button onClick={() => onRequestClose()}>Hide Modal</button>
         {children}
       </ModalBody>
     </ModalBackground>
