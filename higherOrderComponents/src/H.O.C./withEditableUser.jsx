@@ -9,7 +9,7 @@ export const withEditableUser = (Component, userId) => {
 
     useEffect(() => {
       (async () => {
-        const res = await axios.get(`${addy}/user/${userId}`);
+        const res = await axios.get(`${addy}/users/${userId}`);
         setOriginalUser(res.data);
         setUser(res.data);
       })();

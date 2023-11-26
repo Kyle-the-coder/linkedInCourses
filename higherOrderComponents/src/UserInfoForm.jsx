@@ -1,5 +1,6 @@
 import React from "react";
 import { withEditableUser } from "./H.O.C./withEditableUser";
+import { addy } from "./App";
 
 const UserInfoForm = withEditableUser(
   ({ user, onChangeUser, onSaveUser, onResetUser }) => {
@@ -24,11 +25,14 @@ const UserInfoForm = withEditableUser(
           value={hairColor}
           onChange={(e) => onChangeUser({ hairColor: e.target.value })}
         />
+        <button onClick={onResetUser}>Reset</button>
+        <button onClick={onSaveUser}>Save Changes</button>
       </>
     ) : (
       <p>Loading...</p>
     );
-  }
+  },
+  `123`
 );
 
 export default UserInfoForm;
