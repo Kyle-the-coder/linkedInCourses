@@ -72,8 +72,10 @@ app.get("/users/:id", (req, res) => {
 });
 
 app.post("/users/:id", (req, res) => {
+  console.log("hello");
   const { id } = req.params;
   const { user: updatedUser } = req.body;
+  console.log(updatedUser);
 
   users = users.map((user) => (user.id === id ? updatedUser : user));
 
