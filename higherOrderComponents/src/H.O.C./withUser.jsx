@@ -11,7 +11,7 @@ export const withUser = (Component, userId) => {
         const res = await axios.get(`${addy}/users/${userId}`);
         setUser(res.data);
       })();
-    });
+    }, []);
 
     return <Component {...props} user={user} />;
   };
