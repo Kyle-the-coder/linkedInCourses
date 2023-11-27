@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { addy } from "./App";
+import { addy } from "../App";
 
 export const useCurrentUser = () => {
   const [user, setUser] = useState(null);
