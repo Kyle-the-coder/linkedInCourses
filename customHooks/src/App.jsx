@@ -4,7 +4,9 @@ export const addy = "http://localhost:8080";
 function App() {
   return (
     <>
-      <UserInfo />
+      <UserInfo userId={"234"} />
+      <UserInfo userId={"123"} />
+      <UserInfo userId={"345"} />
     </>
   );
 }

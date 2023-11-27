@@ -1,7 +1,9 @@
-import { useCurrentUser } from "../hooks/useCurrentUser";
+import { useResource } from "../hooks/useResource";
+import { useUser } from "../hooks/useUser";
+import { addy } from "../App";
 
-export const UserInfo = () => {
-  const user = useCurrentUser();
+export const UserInfo = ({ userId }) => {
+  const user = useResource(`${addy}/users/${userId}`);
   const { name, age, hairColor, hobbies } = user || {};
 
   return user ? (
