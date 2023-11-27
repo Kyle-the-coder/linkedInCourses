@@ -2,15 +2,15 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { addy } from "../App";
 
-export const useDataSource = (resourceName, resourceId) => {
+export const useDataSource = (getResourceFunc) => {
   const [resource, setResource] = useState(null);
 
   useEffect(() => {
     (async () => {
-      const res = await axios.get(`${addy}/${resourceName}/${resourceId}`);
-      setResource(res.data);
+      const res = await getResourceFunc;
+      setResource(res);
     })();
-  }, [resourceName, resourceId]);
+  }, [getResourceFunc]);
 
   return resource;
 };
