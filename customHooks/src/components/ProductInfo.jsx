@@ -1,5 +1,9 @@
-export const ProductInfo = ({ product }) => {
-  const { name, price, description, rating } = product;
+import { useResource } from "../hooks/useResource";
+import { addy } from "../App";
+
+export const ProductInfo = ({ productId }) => {
+  const product = useResource(`${addy}/products/${productId}`);
+  const { name, price, description, rating } = product || {};
 
   return (
     <>
