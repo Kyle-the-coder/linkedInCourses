@@ -1,6 +1,5 @@
 import React from "react";
 import { withEditableUser } from "./H.O.C./withEditableUser";
-import { addy } from "./App";
 
 const UserInfoForm = withEditableUser(
   ({ user, onChangeUser, onSaveUser, onResetUser }) => {

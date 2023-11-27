@@ -18,11 +18,15 @@ export const withEditableUser = (Component, userId) => {
     const onChangeUser = (changes) => {
       setUser({ ...user, ...changes });
       console.log(user);
+      console.log(changes);
     };
 
     const onSaveUser = async () => {
+      console.log("Current user state:", user); // Add this line
       try {
-        const res = await axios.post(`${addy}/users/${userId}`, { user });
+        const res = await axios.post(`${addy}/update/users/${userId}`, {
+          user: user,
+        });
         setOriginalUser(res.data);
         setUser(res.data);
       } catch (error) {
@@ -31,7 +35,6 @@ export const withEditableUser = (Component, userId) => {
     };
 
     const onResetUser = async () => {
-      // const res = axios.post(`${addy}/users/${userId}`, {originalUser})
       setUser(originalUser);
     };
 

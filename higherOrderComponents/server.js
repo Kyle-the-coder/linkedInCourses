@@ -71,15 +71,19 @@ app.get("/users/:id", (req, res) => {
   res.json(users.find((user) => user.id === id));
 });
 
-app.post("/users/:id", (req, res) => {
-  console.log("hello");
+app.post("/update/users/:id", (req, res) => {
+  console.log(req.body);
   const { id } = req.params;
+  console.log(id);
   const { user: updatedUser } = req.body;
-  console.log(updatedUser);
 
-  users = users.map((user) => (user.id === id ? updatedUser : user));
-
-  res.json(users.find((user) => user.id === id));
+  try {
+    users = users.map((user) => (user.id === id ? updatedUser : user));
+    res.json(users.find((user) => user.id === id));
+  } catch (error) {
+    console.error("Error updating user:", error);
+    res.status(500).json({ error: "Internal Server Error" });
+  }
 });
 
 app.get("/users", (req, res) => {
