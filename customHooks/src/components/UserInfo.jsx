@@ -2,14 +2,15 @@ import { addy } from "../App";
 import axios from "axios";
 import { useDataSource } from "../hooks/useDataSource";
 
+export const serverResource = async (resourceUrl) => {
+  const res = await axios.get(resourceUrl);
+  return res.data;
+};
+
 export const UserInfo = ({ userId }) => {
-  const user = useDataSource(async () => {
-    const res = await axios.get(`${addy}/users/${userId}`);
-    console.log(res.data);
-    return res.data;
-  });
+  const user = useDataSource(serverResource(`${addy}/users/${userId}`));
   const { name, age, hairColor, hobbies } = user || {};
-  console.log(user);
+
   return user ? (
     <>
       <h3>{name}</h3>
