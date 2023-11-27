@@ -74,16 +74,15 @@ app.get("/users/:id", (req, res) => {
 app.post("/update/users/:id", (req, res) => {
   console.log(req.body);
   const { id } = req.params;
-  console.log(id);
-  const { user: updatedUser } = req.body;
+  // const { user: updatedUser } = req.body;
 
-  try {
-    users = users.map((user) => (user.id === id ? updatedUser : user));
-    res.json(users.find((user) => user.id === id));
-  } catch (error) {
-    console.error("Error updating user:", error);
-    res.status(500).json({ error: "Internal Server Error" });
-  }
+  // try {
+  //   users = users.map((user) => (user.id === id ? updatedUser : user));
+  //   res.json(users.find((user) => user.id === id));
+  // } catch (error) {
+  //   console.error("Error updating user:", error);
+  //   res.status(500).json({ error: "Internal Server Error" });
+  // }
 });
 
 app.get("/users", (req, res) => {

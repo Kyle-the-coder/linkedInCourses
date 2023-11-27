@@ -25,7 +25,7 @@ export const withEditableUser = (Component, userId) => {
       console.log("Current user state:", user); // Add this line
       try {
         const res = await axios.post(`${addy}/update/users/${userId}`, {
-          user: user,
+          user,
         });
         setOriginalUser(res.data);
         setUser(res.data);
